@@ -1,4 +1,4 @@
-
+import math
 
 class InputOutput:
 
@@ -55,33 +55,6 @@ class ConditionalStatements:
         year = int(input("write your year: "))
         print(f"{('YES' if year % 4 == 0 and year % 100 != 0 or year % 400 == 0 else 'NO')}!")
 
-    def task_five(self) -> None:
-        first, second, third = map(int, input("write three integer numbers: ").split())
-        if first < second < third:
-            min_value = first
-        elif second < first < third:
-            min_value = second
-        else:
-            min_value = third
-        print(f"Min = {min_value}")  # min(first, second, third)
-
-    def task_six(self) -> None:
-        first, second, third = map(int, input("write three integer numbers: ").split())
-        if first == second == third:
-            counter = 3
-        elif first == second or second == third or first == third:
-            counter = 2
-        else:
-            counter = 0
-        print(f"number of same numbers = {counter}")
-
-    def task_seven(self) -> None:
-        first_column, first_raw, second_column, second_raw = map(int, input("write 4 numbers from 1 to 8: ").split())
-        if (first_column + first_raw) - (second_column + second_raw) in [-3, -1, 1, 3]:
-            print("YES")
-        else:
-            print("NO")
-
     def task_eight(self):
         n, m, k = map(int, input("write n, m, k: ").split())
         if (k == n) or (k == m) or (k in range(n, m * n, n)) or (k in range(m, n * m, m)):
@@ -104,36 +77,9 @@ class ArithmeticOperations:
         number = float(input("write a number: "))
         print(f"{int((number * 10) % 10)}")
 
-    def task_four(self) -> None:
-        year = int(input("write your year: "))
-        print(f"{('YES' if year % 4 == 0 and year % 100 != 0 or year % 400 == 0 else 'NO')}!")
-
-    def task_five(self) -> None:
-        first, second, third = map(int, input("write three integer numbers: ").split())
-        if first < second < third:
-            min_value = first
-        elif second < first < third:
-            min_value = second
-        else:
-            min_value = third
-        print(f"Min = {min_value}")  # min(first, second, third)
-
-    def task_six(self) -> None:
-        first, second, third = map(int, input("write three integer numbers: ").split())
-        if first == second == third:
-            counter = 3
-        elif first == second or second == third or first == third:
-            counter = 2
-        else:
-            counter = 0
-        print(f"number of same numbers = {counter}")
-
-    def task_seven(self) -> None:
-        first_column, first_raw, second_column, second_raw = map(int, input("write 4 numbers from 1 to 8: ").split())
-        if (first_column + first_raw) - (second_column + second_raw) in [-3, -1, 1, 3]:
-            print("YES")
-        else:
-            print("NO")
+    def task_four_master_degree(self):
+        a, b = map(int, input("write a and b: ").split())
+        print(f"hypotenuse = {math.sqrt(a * a + b * b)}")
 
 
 if __name__ == '__main__':
@@ -158,9 +104,6 @@ if __name__ == '__main__':
     ao = ArithmeticOperations()
     # ao.task_one()
     # ao.task_two()
-    ao.task_three()
-    # ao.task_four()
-    # ao.task_five()
-    # ao.task_six()
-    # ao.task_seven()
+    # ao.task_three()
+    # ao.task_four_master_degree()
 
