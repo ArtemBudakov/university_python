@@ -113,6 +113,44 @@ class CycleFor:
         print(f"result = {result}")
 
 
+class CycleWhile:
+
+    def task_one(self) -> None:
+        n = int(input("write n: "))
+        i = 1
+        while i ** 2 <= n:
+            print(f"square = {i ** 2}")
+            i += 1
+
+    def task_two(self) -> None:
+        n = int(input("write n: "))
+        degree = 0
+        number = 1
+        while number + number <= n:
+            number += number
+            degree += 1
+        print(f"degree = {degree}, number = {number}")
+
+    def task_three(self) -> None:
+        counter = 0
+        entered_number = int(input("write an integer: "))
+        while entered_number != 0:
+            counter += entered_number
+            entered_number = int(input("write a number: "))
+        print(f"Result = {counter}")
+
+    def task_four(self):
+        counter = 0
+        entered_number = int(input("write an integer: "))
+        while entered_number != 0:
+            if entered_number > counter:
+                counter = entered_number
+            entered_number = int(input("write a number: "))
+        print(f"Result = {counter}")
+
+
+
+
 if __name__ == '__main__':
     io = InputOutput()
     # io.task_one()
@@ -142,4 +180,10 @@ if __name__ == '__main__':
     # cf.task_one()
     # cf.task_two()
     # cf.task_three()
-    cf.task_four()
+    # cf.task_four()
+
+    cw = CycleWhile()
+    # cw.task_one()
+    # cw.task_two()
+    # cw.task_three()
+    # cw.task_four()
