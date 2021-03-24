@@ -1,19 +1,20 @@
 import math
 
+
 class InputOutput:
 
     def task_one(self) -> None:
         a, b, c = map(float, input("write three numbers: ").split())
-        print(f"{'%g'%(a + b + c)}")
+        print(f"{'%g' % (a + b + c)}")
 
     def task_two(self) -> None:
         a, b = map(float, input("write the value of the two legs: ").split())
-        print(f"{'%g'%((a + b) / 2)}")
+        print(f"{'%g' % ((a + b) / 2)}")
 
     def task_three(self) -> None:
         n, k = map(int, input("write N - school students and K - apples: ").split())
-        print(f"apples to everyone = {'%g'%(k // n)}\n"
-              f"reminder = {'%g'%(k % n)}")
+        print(f"apples to everyone = {'%g' % (k // n)}\n"
+              f"reminder = {'%g' % (k % n)}")
 
     def task_four(self) -> None:
         name = input("write your name: ")
@@ -25,8 +26,8 @@ class InputOutput:
 
     def task_six(self) -> None:
         value = float(input("write number: "))
-        print(f"The next number for the number {'%g'%value} is {'%g'%(value + 1)}.")
-        print(f"The previous number for the number {'%g'%value} is {'%g'%(value - 1)}.")
+        print(f"The next number for the number {'%g' % value} is {'%g' % (value + 1)}.")
+        print(f"The previous number for the number {'%g' % value} is {'%g' % (value - 1)}.")
 
 
 class ConditionalStatements:
@@ -147,8 +148,6 @@ class CycleWhile:
                 counter = entered_number
             entered_number = int(input("write a number: "))
         print(f"Result = {counter}")
-
-
 
 
 if __name__ == '__main__':
