@@ -83,7 +83,34 @@ class ArithmeticOperations:
 
 
 class CycleFor:
-    pass
+
+    def task_one(self) -> None:
+        a, b = map(int, input("write two integer numbers: ").split())
+        print(f"a = {a}, b = {b}")
+        for el in range(a, b + 1, 1):
+            print(f"el = {el}")
+
+    def task_two(self) -> None:
+        a, b = map(int, input("write two integer numbers: ").split())
+        print(f"a = {a}, b = {b}")
+        if a < b:
+            for el in range(a, b + 1, 1):
+                print(f"el = {el}")
+        else:  # a > b
+            for el in range(a, b - 1, -1):
+                print(f"el = {el}")
+
+    def task_three(self) -> None:
+        a, b = map(int, input("write two integer numbers where A > B: ").split())
+        for el in range(a - (a + 1) % 2, b - b % 2, -2):
+            print(f"el = {el}")
+
+    def task_four(self):
+        n = int(input("write n: "))
+        result = 0
+        for el in range(1, n, 1):
+            result += el * 10 + 3
+        print(f"result = {result}")
 
 
 if __name__ == '__main__':
@@ -111,3 +138,8 @@ if __name__ == '__main__':
     # ao.task_three()
     # ao.task_four_master_degree()
 
+    cf = CycleFor()
+    # cf.task_one()
+    # cf.task_two()
+    # cf.task_three()
+    cf.task_four()
