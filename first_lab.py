@@ -82,6 +82,10 @@ class ArithmeticOperations:
         print(f"hypotenuse = {math.sqrt(a * a + b * b)}")
 
 
+class CycleFor:
+    pass
+
+
 if __name__ == '__main__':
     io = InputOutput()
     # io.task_one()
