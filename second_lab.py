@@ -12,7 +12,7 @@ class Lists:
         my_list: list = []
 
         while len(my_list) < 20:
-            my_list.append(random.randint(-999999999, 999999999))
+            my_list.append(random.random())
 
         for index, value in enumerate(my_list):
             if index % 2 == 0:
