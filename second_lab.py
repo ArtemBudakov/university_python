@@ -150,6 +150,50 @@ class Strings:
         print(f"'one' instead '1': {string_entered.replace('1', 'one')}")
 
 
+class Dicts:
+
+    def one(self):
+        string_entered = str(input("write a message: "))
+        counter: dict = {}
+
+        for el in string_entered.split():
+            try:
+                counter[el] += 1
+            except KeyError:
+                counter[el] = 1
+
+        for word in string_entered.split():
+            print(f"{word} {counter[word]}")
+
+    def two(self):
+        pass
+        string_entered = str(input("write a message: "))
+        counter: dict = {}
+
+        for el in string_entered.split():
+            try:
+                counter[el] += 1
+            except KeyError:
+                counter[el] = 0
+            finally:
+                print(f"{el} - {counter[el]}")
+
+    def three(self):
+        pass
+
+    def four(self):
+        pass
+
+    def five(self):
+        pass
+
+    def six(self):
+        pass
+
+    def seven(self):
+        pass
+
+
 if __name__ == '__main__':
     l1 = Lists()
     # l1.one()
@@ -168,3 +212,12 @@ if __name__ == '__main__':
     # s1.five()
     # s1.six()
     # s1.seven()
+
+    d1 = Dicts()
+    # d1.one()
+    d1.two()
+    d1.three()
+    d1.four()
+    d1.five()
+    d1.six()
+    d1.seven()
