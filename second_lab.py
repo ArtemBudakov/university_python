@@ -118,7 +118,7 @@ class Strings:
     def two(self):
         string_entered = str(input("write a message: "))
 
-        print(f"spaces: {string_entered.count(' ')}")
+        print(f"words: {len(string_entered.split())}")
 
     def three(self):
         pass
