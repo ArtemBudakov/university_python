@@ -101,6 +101,38 @@ class Lists:
         print(f"switched max and min values: {my_list}")
 
 
+class Strings:
+
+    def one(self):
+        string_entered = str(input("write a message: "))
+        print(f"third symbol: {string_entered[2]}\n"
+              f"before last symbol: {string_entered[-2]}\n"
+              f"first five symbols: {string_entered[0: 5]}\n"
+              f"without two last symbols: {string_entered[:-2:]}\n"
+              f"an even indexes: {string_entered[::2]}\n"
+              f"an odd indexes: {string_entered[1::2]}\n"
+              f"reversed: {string_entered[::-1]}\n"
+              f"reversed and through one: {string_entered[::-2]}\n"
+              f"current length: {len(string_entered)}")
+
+    def two(self):
+        string_entered = str(input("write a message: "))
+
+        print(f"spaces: {string_entered.count(' ')}")
+
+    def three(self):
+        pass
+
+    def four(self):
+        pass
+
+    def five(self):
+        pass
+
+    def six(self):
+        pass
+
+
 if __name__ == '__main__':
     l1 = Lists()
     # l1.one()
@@ -110,3 +142,7 @@ if __name__ == '__main__':
     # l1.five()
     # l1.six()
     # l1.seven()
+
+    s1 = Strings()
+    # s1.one()
+    s1.two()
