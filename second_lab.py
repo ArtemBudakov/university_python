@@ -121,16 +121,33 @@ class Strings:
         print(f"words: {len(string_entered.split())}")
 
     def three(self):
-        pass
+        string_entered = str(input("write a message: "))
+        if len(string_entered) % 2 == 0:
+            print(f"half and half: {string_entered[len(string_entered) // 2:]} and "
+                  f"{string_entered[:len(string_entered) // 2]}")
+        else:
+            print(f"half and half: {string_entered[len(string_entered) // 2 + 1:]} and "
+                  f"{string_entered[:len(string_entered) // 2 + 1]}")
 
     def four(self):
-        pass
+        string_entered = str(input("write a message using only two words with space between: "))
+
+        print(f"words: {string_entered[string_entered.find(' ') + 1:]} and {string_entered[:string_entered.find(' ')]}")
 
     def five(self):
-        pass
+        string_entered = str(input("write a message: "))
+        if string_entered.count("f") == 1:
+            print(f'only one: {string_entered.find("f")}')
+        elif string_entered.count("f") == 2:
+            print(f'only twice: {string_entered.find("f"), string_entered.rfind("f")}')
 
     def six(self):
-        pass
+        string_entered = str(input("write a message: "))
+        print(f"Output: {string_entered[:string_entered.find('h')] + string_entered[string_entered.rfind('h') + 1:]}")
+
+    def seven(self):
+        string_entered = str(input("write a message: "))
+        print(f"'one' instead '1': {string_entered.replace('1', 'one')}")
 
 
 if __name__ == '__main__':
@@ -145,4 +162,9 @@ if __name__ == '__main__':
 
     s1 = Strings()
     # s1.one()
-    s1.two()
+    # s1.two()
+    # s1.three()
+    # s1.four()
+    # s1.five()
+    # s1.six()
+    # s1.seven()
