@@ -166,7 +166,6 @@ class Dicts:
             print(f"{word} {counter[word]}")
 
     def two(self):
-        pass
         string_entered = str(input("write a message: "))
         counter: dict = {}
 
@@ -179,7 +178,23 @@ class Dicts:
                 print(f"{el} - {counter[el]}")
 
     def three(self):
-        pass
+        string_entered = str(input("write a message: "))
+        counter_dict: dict = {}
+
+        for el in string_entered.split():
+            if el in counter_dict:
+                counter_dict[el] = False
+            else:
+                counter_dict[el] = True
+
+        counter: int = 1
+        for word in string_entered.split():
+            if counter_dict[word] is False:
+                value = 0
+            else:
+                value = counter
+                counter += 1
+            print(f"{word} {value}")
 
     def four(self):
         pass
@@ -215,7 +230,7 @@ if __name__ == '__main__':
 
     d1 = Dicts()
     # d1.one()
-    d1.two()
+    # d1.two()
     d1.three()
     d1.four()
     d1.five()
