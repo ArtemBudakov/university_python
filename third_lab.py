@@ -46,6 +46,15 @@ class Point:
         return math.sqrt((other_point.x - self.x) ** 2 + (other_point.y - self.y) ** 2)
 
 
+class Circle:
+    def __init__(self, point_object, circle_radius):
+        self.radius = circle_radius
+        self.center = point_object
+
+    def square(self):
+        return 3.14 * self.radius * self.radius
+
+
 if __name__ == '__main__':
 
     # first task - distance()
@@ -67,11 +76,12 @@ if __name__ == '__main__':
     # values = input("write numbers: ").split()
     # print(concat(values))
 
-    p1 = Point(1.5, 0)
-    p2 = Point(1.5, 2)
-    print(p1.dist(p2))
+    # p1 = Point(1.5, 0)
+    # p2 = Point(1.5, 2)
+    # print(p1.dist(p2))
 
-
-
+    pc1 = Point(1, 2)
+    c1 = Circle(pc1, 5)
+    print(c1.square())
 
 
