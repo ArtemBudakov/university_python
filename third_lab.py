@@ -22,6 +22,15 @@ def mean(args):
     return sum(args) / len(args)
 
 
+def concat(args):
+    result: str = ""
+
+    for arg in args:
+        result += arg
+
+    return result
+
+
 if __name__ == '__main__':
 
     # values_list = [float(value) for value in (input("write x1, y1 and x2, y2: ")).split()]
@@ -32,11 +41,12 @@ if __name__ == '__main__':
     # result = miles_to_km(value)
     # print(str(result))
 
-    values = [float(value) for value in (input("write numbers: ")).split()]
-    result = mean(values)
-    print(str(result))
+    # values = [float(value) for value in (input("write numbers: ")).split()]
+    # result = mean(values)
+    # print(str(result))
 
-
+    values = input("write numbers: ").split()
+    print(concat(values))
 
 
 
