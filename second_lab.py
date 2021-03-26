@@ -197,16 +197,47 @@ class Dicts:
             print(f"{word} {value}")
 
     def four(self):
-        pass
+        counter_message = int(input("write count of message: "))
+        counter_dict: dict = {}
+
+        while counter_message > 0:
+            string_entered = str(input("write a message: "))
+            string_entered_list = string_entered.split()
+            counter_dict[string_entered_list[1]] = string_entered_list[0]
+            counter_message -= 1
+
+        print(f"antonym: {counter_dict[str(input('write a word: '))]}")
 
     def five(self):
-        pass
+        string_entered = str(input("write a message: "))
+        string_entered = string_entered.replace(" ", "")
+        counter_dict: dict = {}
+
+        for el in string_entered:
+            try:
+                counter_dict[el] += 1
+            except KeyError:
+                counter_dict[el] = 1
+
+        for word in counter_dict:
+            print(f"{word} {counter_dict[word]}")
 
     def six(self):
-        pass
+        """earlier and more often"""
+        string_entered = str(input("write a message: "))
+        counter_dict: dict = {}
 
-    def seven(self):
-        pass
+        for el in string_entered.split():
+            try:
+                counter_dict[el] += 1
+            except KeyError:
+                counter_dict[el] = 1
+
+        current = next(iter(counter_dict))
+        for word in counter_dict:
+            if counter_dict[word] > counter_dict[current]:
+                current = word
+        print(f"more often: {current}")
 
 
 if __name__ == '__main__':
@@ -231,8 +262,7 @@ if __name__ == '__main__':
     d1 = Dicts()
     # d1.one()
     # d1.two()
-    d1.three()
-    d1.four()
-    d1.five()
+    # d1.three()
+    # d1.four()
+    # d1.five()
     d1.six()
-    d1.seven()
