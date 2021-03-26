@@ -37,6 +37,15 @@ def call(function, args):
     pass
 
 
+class Point:
+    def __init__(self, x: float = 0, y: float = 0):
+        self.x = x
+        self.y = y
+
+    def dist(self, other_point):
+        return math.sqrt((other_point.x - self.x) ** 2 + (other_point.y - self.y) ** 2)
+
+
 if __name__ == '__main__':
 
     # first task - distance()
@@ -57,7 +66,11 @@ if __name__ == '__main__':
     # fourth task - concat()
     # values = input("write numbers: ").split()
     # print(concat(values))
-    pass
+
+    p1 = Point(1.5, 0)
+    p2 = Point(1.5, 2)
+    print(p1.dist(p2))
+
 
 
 
