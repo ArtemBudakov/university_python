@@ -53,9 +53,15 @@ class Circle:
     def __init__(self, point_object, circle_radius):
         self.radius = circle_radius
         self.center = point_object
+        self.point_object = point_object
 
     def square(self):
         return 3.14 * self.radius * self.radius
+
+    def do_intersect(self, another_circle):
+        distance_between_circles = math.sqrt((another_circle.point_object.x - self.point_object.x) ** 2
+                                             + (another_circle.point_object.y - self.point_object.y) ** 2)
+        return abs(self.radius - another_circle.radius) <= distance_between_circles <= (self.radius + another_circle.radius)
 
 
 if __name__ == '__main__':
@@ -80,8 +86,8 @@ if __name__ == '__main__':
     # print(concat(values))
 
     # fifth task - call()
-    print(call(add, "dasdsad", "aaaaaaaaa"))
-    print(call(add, 1, 3))
+    # print(call(add, "dasdsad", "aaaaaaaaa"))
+    # print(call(add, 1, 3))
 
     # p1 = Point(1.5, 0)
     # p2 = Point(1.5, 2)
@@ -90,6 +96,12 @@ if __name__ == '__main__':
     # pc1 = Point(1, 2)
     # c1 = Circle(pc1, 5)
     # print(c1.square())
+
+    pc1 = Point(0, 0)
+    pc2 = Point(0, 0)
+    c1 = Circle(pc1, 3)
+    c2 = Circle(pc2, 1)
+    print(c1.do_intersect(c2))
 
 
 
