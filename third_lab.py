@@ -31,10 +31,13 @@ def concat(args):
     return result
 
 
-def call(function, args):
-    """Strange task. I don't know how i must do it and why someone use it. skipped for now.
-    https://stackoverflow.com/questions/40644740/what-is-the-difference-between-the-apply-function-and-a-function-call-using-th"""
-    pass
+def add(var1, var2):
+    return var1 + var2
+
+
+def call(function, var1, var2):
+    result = function(var1, var2)
+    return result
 
 
 class Point:
@@ -76,12 +79,17 @@ if __name__ == '__main__':
     # values = input("write numbers: ").split()
     # print(concat(values))
 
+    # fifth task - call()
+    print(call(add, "dasdsad", "aaaaaaaaa"))
+    print(call(add, 1, 3))
+
     # p1 = Point(1.5, 0)
     # p2 = Point(1.5, 2)
     # print(p1.dist(p2))
 
-    pc1 = Point(1, 2)
-    c1 = Circle(pc1, 5)
-    print(c1.square())
+    # pc1 = Point(1, 2)
+    # c1 = Circle(pc1, 5)
+    # print(c1.square())
+
 
 
