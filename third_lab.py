@@ -54,9 +54,29 @@ class Circle:
         self.radius = circle_radius
         self.center = point_object
         self.point_object = point_object
+        self.square = self.square()
+
+    def __eq__(self, other):
+        if self.square == other.square:
+            return True
+        else:
+            return False
+
+    def __lt__(self, other):
+        if self.square < other.square:
+            return True
+        else:
+            return False
+
+    def __gt__(self, other):
+        if self.square > other.square:
+            return True
+        else:
+            return False
 
     def square(self):
-        return 3.14 * self.radius * self.radius
+        self.square = 3.14 * self.radius * self.radius
+        return self.square
 
     def do_intersect(self, another_circle):
         distance_between_circles = math.sqrt((another_circle.point_object.x - self.point_object.x) ** 2
@@ -99,9 +119,10 @@ if __name__ == '__main__':
 
     pc1 = Point(0, 0)
     pc2 = Point(0, 0)
-    c1 = Circle(pc1, 3)
-    c2 = Circle(pc2, 1)
+    c1 = Circle(pc1, 1)
+    c2 = Circle(pc2, 3)
     print(c1.do_intersect(c2))
 
-
-
+    print(c1 == c2)
+    print(c1 < c2)
+    print(c1 > c2)
