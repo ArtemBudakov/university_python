@@ -1,3 +1,4 @@
+from abc import ABC, abstractmethod
 import math
 
 
@@ -84,6 +85,35 @@ class Circle:
         return abs(self.radius - another_circle.radius) <= distance_between_circles <= (self.radius + another_circle.radius)
 
 
+class Animal(ABC):
+    def __init__(self, name, sound=None):
+        self.name = name
+        self.sound = sound
+
+    def make_sound(self):
+        print(f"{self.name} says {self.sound}")
+
+    @abstractmethod
+    def move(self):
+        pass
+
+
+class Dog(Animal):
+    def __init__(self, name, sound='woof'):
+        super().__init__(name, sound)
+
+    def move(self):
+        print(f"{self.name} walks")
+
+
+class Snake(Animal):
+    def __init__(self, name, sound='hsss'):
+        super().__init__(name, sound)
+
+    def move(self):
+        print(f"{self.name} crawls")
+
+
 if __name__ == '__main__':
 
     # first task - distance()
@@ -119,6 +149,10 @@ if __name__ == '__main__':
 
     # pc1 = Point(0, 0)
     # pc2 = Point(0, 0)
+
+    # pc1 = Point(1, 1)  # small
+    # pc2 = Point(2, 2)  # middle
+
     # c1 = Circle(pc1, 1)
     # c2 = Circle(pc2, 3)
     # print(c1.do_intersect(c2))
@@ -127,4 +161,24 @@ if __name__ == '__main__':
     # print(c1 < c2)
     # print(c1 > c2)
 
-    pass
+    # pc3 = Point(5, 5)  # big
+    # c3 = Circle(pc3, 5)
+    # circle_l = [c3, c1, c2]
+    #
+    # print("before sort()")
+    # for el in circle_l:
+    #     print(f"el = {el}, x = {el.point_object.x}, y = {el.point_object.y}")
+    #
+    # circle_l.sort()
+    #
+    # print("after sort()")
+    # for el in circle_l:
+    #     print(f"el = {el}, x = {el.point_object.x}, y = {el.point_object.y}")
+
+    d1 = Dog(name="bars")
+    d1.make_sound()
+    d1.move()
+
+    s1 = Snake(name="snake")
+    s1.make_sound()
+    s1.move()
