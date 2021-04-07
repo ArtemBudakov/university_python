@@ -117,12 +117,14 @@ if __name__ == '__main__':
     # c1 = Circle(pc1, 5)
     # print(c1.square())
 
-    pc1 = Point(0, 0)
-    pc2 = Point(0, 0)
-    c1 = Circle(pc1, 1)
-    c2 = Circle(pc2, 3)
-    print(c1.do_intersect(c2))
+    # pc1 = Point(0, 0)
+    # pc2 = Point(0, 0)
+    # c1 = Circle(pc1, 1)
+    # c2 = Circle(pc2, 3)
+    # print(c1.do_intersect(c2))
+    #
+    # print(c1 == c2)
+    # print(c1 < c2)
+    # print(c1 > c2)
 
-    print(c1 == c2)
-    print(c1 < c2)
-    print(c1 > c2)
+    pass
