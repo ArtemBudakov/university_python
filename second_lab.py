@@ -51,15 +51,16 @@ class Lists:
         while len(my_list) < 10:
             my_list.append(random.random())
 
-        print(f"primary list: {my_list}\n")
-
-        index = 0
-        max_el = my_list[index]
+        print("primary list:")
+        for el in my_list:
+            print(el)
+        max_el_index = 0
+        max_el = my_list[max_el_index]
         for index, el in enumerate(my_list):
             if el > max_el:
-                max_el, index = el, index
+                max_el, max_el_index = el, index
 
-        print(f"element = {max_el}, index = {index}")
+        print(f"element = {max_el}, index = {max_el_index}")
 
     def six(self):
         my_list: list = []
@@ -246,7 +247,7 @@ if __name__ == '__main__':
     # l1.two()
     # l1.three()
     # l1.four()
-    # l1.five()
+    l1.five()
     # l1.six()
     # l1.seven()
 
@@ -265,4 +266,4 @@ if __name__ == '__main__':
     # d1.three()
     # d1.four()
     # d1.five()
-    d1.six()
+    # d1.six()
