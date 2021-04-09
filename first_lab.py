@@ -56,6 +56,14 @@ class ConditionalStatements:
         year = int(input("write your year: "))
         print(f"{('YES' if year % 4 == 0 and year % 100 != 0 or year % 400 == 0 else 'NO')}!")
 
+    def task_five(self) -> None:
+        a, b, c = map(int, input("write three numbers: ").split())
+        # min(a, b, c)
+        if a < c and b < c:
+            print(f"Output: {(a if a < b else b)}")
+        else:
+            print(f"Output: {c}")
+
     def task_eight(self):
         n, m, k = map(int, input("write n, m, k: ").split())
         if (k == n) or (k == m) or (k in range(n, m * n, n)) or (k in range(m, n * m, m)):
@@ -109,8 +117,9 @@ class CycleFor:
     def task_four(self):
         n = int(input("write n: "))
         result = 0
-        for el in range(1, n, 1):
-            result += el * 10 + 3
+        for el in range(1, n + 1, 1):
+            print(el, el ** 3)
+            result += el ** 3
         print(f"result = {result}")
 
 
@@ -179,7 +188,7 @@ if __name__ == '__main__':
     # cf.task_one()
     # cf.task_two()
     # cf.task_three()
-    # cf.task_four()
+    cf.task_four()
 
     cw = CycleWhile()
     # cw.task_one()
