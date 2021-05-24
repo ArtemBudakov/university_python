@@ -1,197 +1,282 @@
-import math
+
+def sum_of_three():
+    """Напишите программу, которая считывает три числа и выводит их сумму.Каждое число записано в отдельной строке."""
+
+    a = float(input('a = '))
+    b = float(input('b = '))
+    c = float(input('c = '))
+    print(f"{(a + b + c)}")
 
 
-class InputOutput:
-
-    def task_one(self) -> None:
-        a, b, c = map(float, input("write three numbers: ").split())
-        print(f"{'%g' % (a + b + c)}")
-
-    def task_two(self) -> None:
-        a, b = map(float, input("write the value of the two legs: ").split())
-        print(f"{'%g' % ((a + b) / 2)}")
-
-    def task_three(self) -> None:
-        n, k = map(int, input("write N - school students and K - apples: ").split())
-        print(f"apples to everyone = {'%g' % (k // n)}\n"
-              f"reminder = {'%g' % (k % n)}")
-
-    def task_four(self) -> None:
-        name = input("write your name: ")
-        print(f"Hello, {name}!")
-
-    def task_five(self) -> None:
-        minutes = int(input("write N - minutes: "))
-        print(f"Hours = {minutes // 60}, minutes = {minutes % 60}")
-
-    def task_six(self) -> None:
-        value = float(input("write number: "))
-        print(f"The next number for the number {'%g' % value} is {'%g' % (value + 1)}.")
-        print(f"The previous number for the number {'%g' % value} is {'%g' % (value - 1)}.")
+def length_of_legs():
+    """
+    Напишите программу, которая считывает длины двух катетов в прямоугольном треугольнике и выводит его площадь.
+    Каждое число записано в отдельной строке
+    """
+    a = int(input('a = '))
+    b = int(input('b = '))
+    print(f"{((a + b) / 2)}")
 
 
-class ConditionalStatements:
-    def task_one(self) -> None:
-        a, b = map(int, input("write two numbers: ").split())
-        print(f"Output: {(a if a < b else b)}")  # min(a, b)
-
-    def task_two(self) -> None:
-        value = float(input(" write number: "))
-        if value < 0:
-            sign_x = -1
-        elif value == 0:
-            sign_x = 0
-        else:
-            sign_x = 1
-        print(f"Output: {sign_x}")
-
-    def task_three(self) -> None:
-        first_column, first_raw, second_column, second_raw = map(int, input("write 4 numbers from 1 to 8: ").split())
-        if (first_column + first_raw) % 2 == 0 and (second_column + second_raw) % 2 == 0:
-            print("YES")
-        else:
-            print("NO")
-
-    def task_four(self) -> None:
-        year = int(input("write your year: "))
-        print(f"{('YES' if year % 4 == 0 and year % 100 != 0 or year % 400 == 0 else 'NO')}!")
-
-    def task_five(self) -> None:
-        a, b, c = map(int, input("write three numbers: ").split())
-        # min(a, b, c)
-        if a < c and b < c:
-            print(f"Output: {(a if a < b else b)}")
-        else:
-            print(f"Output: {c}")
-
-    def task_eight(self):
-        n, m, k = map(int, input("write n, m, k: ").split())
-        if (k == n) or (k == m) or (k in range(n, m * n, n)) or (k in range(m, n * m, m)):
-            print("YES")
-        else:
-            print("NO")
+def greetings():
+    """
+    Напишите прогрмамму, которая приветсвтует пользователя, вывлдя слово Hello, введенное имя и знаки препинания
+    по образцу:
+    Harry
+    Hello, Harry!
+    """
+    name = input("write your name: ")
+    print(f"Hello, {name}!")
 
 
-class ArithmeticOperations:
-    def task_one(self) -> None:
-        number = int(input("write positive integer number: "))
-        print(f"last digit = {number % 10}")
-
-    def task_two(self) -> None:
-        """I don't understand this task."""
-        v, t = map(int, input(" write v and t: ").split())
-        print(f"Output: {v * t % 109}")
-
-    def task_three(self) -> None:
-        number = float(input("write a number: "))
-        print(f"{int((number * 10) % 10)}")
-
-    def task_four_master_degree(self):
-        a, b = map(int, input("write a and b: ").split())
-        print(f"hypotenuse = {math.sqrt(a * a + b * b)}")
+def next_and_previous_numbers():
+    """
+    Напишите программу, которая считывает целое число и выводит текст, аналогичный приведённому в примере:
+    >> 12345
+    << The next number for the number 12345 is 12346.
+    << The previous number for the number 12345 is 12344.
+    """
+    value = int(input("write number: "))
+    print(f"The next number for the number {value} is {value + 1}.")
+    print(f"The previous number for the number {value} is {value - 1}.")
 
 
-class CycleFor:
+def min_of_two_numbers():
+    """
+    Даны два целых числа. Выведите значение наименьшего из них.
+    """
+    a = int(input('a = '))
+    b = int(input('b = '))
+    if a > b:
+        print(b)
+    elif b < a:
+        print(a)
+    else:
+        print('numbers equals')
 
-    def task_one(self) -> None:
-        a, b = map(int, input("write two integer numbers: ").split())
-        print(f"a = {a}, b = {b}")
-        for el in range(a, b + 1, 1):
-            print(f"el = {el}")
 
-    def task_two(self) -> None:
-        a, b = map(int, input("write two integer numbers: ").split())
-        print(f"a = {a}, b = {b}")
+def sign_function():
+    """
+    В математике функция sign(x) (знак числа) определена так:
+    sign(x) = 1, Если x > 0,
+    sign(x) = -1, Если x < 0,
+    sign(x) = 0, Если x = 0,
+    """
+    value = float(input(" write number: "))
+    if value < 0:
+        sign_x = -1
+    elif value == 0:
+        sign_x = 0
+    else:
+        sign_x = 1
+    print(f"Output: {sign_x}")
+
+
+def chess_yes_or_no():
+    """
+    Заданы две клетки шахматной доски. Если они покрашены в один цвет, то выведите слово YES, а если в заные - то NO.
+    Программа получает на вход четыре чисоа от 1 до 8 каждое, задающие номер столбца и номер строки сначал для первой
+    клетки, потом для второй клетки.
+    """
+    first_column = int(input("write number from 1 to 8: "))
+    first_raw = int(input("write number from 1 to 8: "))
+    second_column = int(input("write number from 1 to 8: "))
+    second_raw = int(input("write number from 1 to 8: "))
+
+    # проверяем клетки на чётность. получаем сумму столбцов и строк двух клеток
+    # сравнивем остатки (получается 0 или 1)
+    # если остатки совпадают у двух клеток, значит YES
+    if (first_column + first_raw) % 2 == (second_column + second_raw) % 2:
+        print("YES")
+    else:
+        print("NO")
+
+
+def min_of_three():
+    """
+    Даны три целых числа. Выведите зачение наименьше из них.
+    """
+    a = int(input('a = '))
+    b = int(input('b = '))
+    c = int(input('c = '))
+
+    if a < c and b < c:
         if a < b:
-            for el in range(a, b + 1, 1):
-                print(f"el = {el}")
-        else:  # a > b
-            for el in range(a, b - 1, -1):
-                print(f"el = {el}")
+            print(a)
+        else:
+            print(b)
+    else:
+        print(c)
 
-    def task_three(self) -> None:
-        a, b = map(int, input("write two integer numbers where A > B: ").split())
-        for el in range(a - (a + 1) % 2, b - b % 2, -2):
+
+def last_digit_from_number():
+    """Дано натуральное число. Выведите его последнюю цифру."""
+    number = int(input("write positive integer number: "))
+    print(f"last digit is {number % 10}")
+
+
+def MKAD_and_Vasya():
+    """Длина Московской кольцевой автомобильной дороги - 109 километров. Байкер
+    Вася стартует с нулевого километра МКАД и едет со скоростью vv километров в
+    час. На какой отметке он остановится через tt часов?
+
+    Программа получает на вход значение v и t. Если v > 0, то Вася движется в
+    положительном направлении по МКАД, если же значение v < 0, то в отрицательном.
+
+    Программа должна вывести целое число от 0 до 108 - номер отметки на которой отсановится Вася.
+    """
+    v = int(input('write v '))
+    t = int(input('write t '))
+    # Получаем расстояние которое проехал Вася, а потом ищем точку в которой он остановился.
+    # 109 - радиус окружности
+    print(f"Output: {v * t % 109}")
+
+
+def first_digit_after_comma():
+    """
+    Дано положительное действиетельное число Х. Выведите его первую цифру после десятичной точки.
+    """
+    number = float(input("write a number: "))
+    digit = int(number * 10) % 10
+    print(digit)
+
+
+def hypotenuse_of_triangle():
+    """
+    Дано два числа a и b. Выведите гипотенузу треугольника с заданными катетами.
+    """
+    a = int(input("a = "))
+    b = int(input("b = "))
+    # 0.5 = 1\2. Получаем квадратный корень путём возведения числа в степень 0.5
+    print(f"hypotenuse = {(a ** 2 + b ** 2) ** 0.5}")
+
+
+def all_numbers_from_A_to_B():
+    """Даны два целых чиста А и В (при этом А <= B). Выведите все числа от А до В включительно."""
+    a = int(input("a = "))
+    b = int(input("b = "))
+    print(f"a = {a}, b = {b}")
+    for el in range(a, b + 1, 1):
+        print(f"el = {el}")
+
+
+def asc_desc_for_two_numbers():
+    """
+    Даны два целых чиста A и В. Выведите все числа от А до В включительно, в порядке возрастанеия, есил A < В,
+    или в порядке убывания в противном случае.
+    """
+    a = int(input("a = "))
+    b = int(input("b = "))
+    print(f"a = {a}, b = {b}")
+    if a < b:
+        for el in range(a, b + 1, 1):  # Начать с a, закончить в (b+1), с шагом 1
+            print(f"el = {el}")
+    else:  # a > b
+        for el in range(a, b - 1, -1):  # Начать с a, закончить в (b-1), с шагом -1
             print(f"el = {el}")
 
-    def task_four(self):
-        n = int(input("write n: "))
-        result = 0
-        for el in range(1, n + 1, 1):
-            print(el, el ** 3)
-            result += el ** 3
-        print(f"result = {result}")
+
+def all_odds_numbers():
+    """
+    Даны два целых числа A и B, A > B. Выведите все нечётные числа от А до В
+    включительно в порядке убывания. В этой задаче обойтись без инструкции If.
+    """
+    a = int(input('А должно быть больше В, a = '))
+    b = int(input('А должно быть больше В, b = '))
+    start_from = a - (a + 1) % 2
+    end_there = b - b % 2
+    step = -2
+    for el in range(start_from, end_there, step):
+        print(f"el = {el}")
 
 
-class CycleWhile:
+def degrees():
+    """По данному натуральному n вычислите сумму 1**3 + 2**3 + 3**3 + ... + n**3 """
+    n = int(input("write n: "))
+    result = 0
+    for el in range(1, n + 1, 1):  # начинаем с 1, заканчиваем (N+1), с шагом 1
+        print(el, el ** 3)  # выводим число и его куб
+        result += el ** 3  # добавляем значение куба числа к общей сумме всех кубов
+    print(f"result = {result}")  # выводим сумму кубов всех чисел
 
-    def task_one(self) -> None:
-        n = int(input("write n: "))
-        i = 1
-        while i ** 2 <= n:
-            print(f"square = {i ** 2}")
-            i += 1
 
-    def task_two(self) -> None:
-        n = int(input("write n: "))
-        degree = 0
-        number = 1
-        while number + number <= n:
-            number += number
-            degree += 1
-        print(f"degree = {degree}, number = {number}")
+def all_square_for_N():
+    """По данному целому числу N распечатайте все квадраты натуральных числе,
+    не превосходящие N в порядке возрастания."""
+    n = int(input("write n: "))
+    i = 1
+    while i ** 2 <= n:
+        print(f"square = {i ** 2}")
+        i += 1
 
-    def task_three(self) -> None:
-        counter = 0
-        entered_number = int(input("write an integer: "))
-        while entered_number != 0:
-            counter += entered_number
-            entered_number = int(input("write a number: "))
-        print(f"Result = {counter}")
 
-    def task_four(self):
-        counter = 0
-        entered_number = int(input("write an integer: "))
-        while entered_number != 0:
-            if entered_number > counter:
-                counter = entered_number
-            entered_number = int(input("write a number: "))
-        print(f"Result = {counter}")
+def biggest_degree_of_N():
+    """По данному натуральному числу N найдите наибольшую целую степень двойки,
+    не превосходящую N. Выведите показатель степени и саму степень.
+    Решить без использования операции возведения в степень"""
+
+    n = int(input("write n: "))
+    degree = 0
+    number = 1
+    while number + number <= n:
+        number += number
+        degree += 1
+    print(f"degree = {degree}, number = {number}")
+
+
+def sum_numbers_who_ends_of_zero():
+    """С клавиатуры последовательно вводятя числа, заканчивающиеся нулём.
+    Определите сумму всех элементов последовательно, завершающейся числом 0."""
+    counter = 0
+    entered_number = int(input("write an integer: "))
+    while entered_number != 0:
+        counter += entered_number
+        entered_number = int(input("write a number: "))
+    print(f"Result = {counter}")
+
+
+def max_value_from_sequence():
+    """С клавиатуры последовательно вводятя числа, заканчивающиеся нулём.
+    Определите значение максимального элемента этой последовательности."""
+    counter = 0
+    entered_number = int(input("write an integer: "))
+    while entered_number != 0:  # пока введённое число не равно 0
+        if entered_number > counter:
+            counter = entered_number
+        entered_number = int(input("write a number: "))
+    print(f"Result = {counter}")
 
 
 if __name__ == '__main__':
-    io = InputOutput()
-    # io.task_one()
-    # io.task_two()
-    # io.task_three()
-    # io.task_four()
-    # io.task_five()
-    # io.task_six()
 
-    cs = ConditionalStatements()
-    # cs.task_one()
-    # cs.task_two()
-    # cs.task_three()
-    # cs.task_four()
-    # cs.task_five()
-    # cs.task_six()
-    # cs.task_seven()
-    # cs.task_eight()
+    """Ввод вывыод"""
+    # sum_of_three()
+    # length_of_legs()
+    # greetings()
+    # next_and_previous_numbers()
 
-    ao = ArithmeticOperations()
-    # ao.task_one()
-    # ao.task_two()
-    # ao.task_three()
-    # ao.task_four_master_degree()
+    """Условные операторы"""
+    # min_of_two_numbers()
+    # sign_function()
+    # chess_yes_or_no()
+    # min_of_three()
 
-    cf = CycleFor()
-    # cf.task_one()
-    # cf.task_two()
-    # cf.task_three()
-    cf.task_four()
+    """Арифметические операции"""
+    # last_digit_from_number()
+    # MKAD_and_Vasya()
+    # first_digit_after_comma()
+    # hypotenuse_of_triangle()
 
-    cw = CycleWhile()
-    # cw.task_one()
-    # cw.task_two()
-    # cw.task_three()
-    # cw.task_four()
+    """Цикл for"""
+    # all_numbers_from_A_to_B()
+    # asc_desc_for_two_numbers()
+    # all_odds_numbers()
+    # degrees()
+
+    """Цикл while"""
+    # all_square_for_N()
+    # biggest_degree_of_N()
+    # sum_numbers_who_ends_of_zero()
+    # max_value_from_sequence()
+
+    pass
