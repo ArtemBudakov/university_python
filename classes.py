@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 import math
 
 
@@ -78,7 +77,6 @@ class Circle:
         return abs(self.radius - other_circle.radius) <= distance_between_circles <= (self.radius + other_circle.radius)
 
 
-class Animal(ABC):
     """5.	Все животные имеют между собой много общего. Они умеют издавать звуки и перемещатся.
     А еще у них есть имена, которые им дают при рождении. Это общее можно описать следующим классом:
 
@@ -100,32 +98,35 @@ class Animal(ABC):
     ->dog.move()
     Mike walks
     """
-    def __init__(self, name, sound=None):
+
+
+class Animal:
+    def __init__(self, name, sound):  # создаём конструктор класса Animal
+        self.name = name              # инициализируем аргумент name для класса
+        self.sound = sound            # инициализируем аргумент sound для класса
+
+    def make_sound(self):
+        print(f"{self.name} says {self.sound}")  # выводим информацию о том какой звук издаёт кто-то с именем {self.name}
+
+
+class Dog(Animal):                              # Создаём класс Dog, который является наследником от Animal
+    def __init__(self, name, sound='woof'):     # Создаём конструктор класса Dog. Если sound не указан
+                                                # при создании, то будет woof по умолчанию
         self.name = name
         self.sound = sound
 
-    def make_sound(self):
-        print(f"{self.name} says {self.sound}")
-
-    @abstractmethod
     def move(self):
-        pass
+        print(f"{self.name} walks")             # выводим информацию о том как передвигаются собаки
 
 
-class Dog(Animal):
-    def __init__(self, name, sound='woof'):
-        super().__init__(name, sound)
+class Snake(Animal):                            # Создаём класс Snake, который является наследником от Animal
+    def __init__(self, name, sound='hsss'):     # Cоздаём конструктор класса Snake. Если sound не указан
+                                                # при создании, то будет hsss по умолчанию
+        self.name = name
+        self.sound = sound
 
     def move(self):
-        print(f"{self.name} walks")
-
-
-class Snake(Animal):
-    def __init__(self, name, sound='hsss'):
-        super().__init__(name, sound)
-
-    def move(self):
-        print(f"{self.name} crawls")
+        print(f"{self.name} crawls")            # выводим информацию о том как передвигаются змеи
 
 
 if __name__ == '__main__':
@@ -134,11 +135,11 @@ if __name__ == '__main__':
     p2 = Point(1.5, 2)  # инициализируем (создаём) экземпляр точки с координатами x = 1.5, y = 2
     print(p1.dist(p2))  # в экземпляре p1 вызываем функцию dist и передаём этой функции экземпляр другой точки
 
-    pc1 = Point(1, 2)            # инициализируем (создаём) экземпляр точки с координатами x = 1, y = 2
-    c1 = Circle(pc1, 5)          # инициализируем (создаём) экземпляр круга с точкой из pc1 и радиусом 5
-    print(c1.square_calculate()) # в экземпляре c1 вызываем метод(функци) для расчёта площади
-                                 # т.к. мы делаем это в конструкторе класса, то можно сделать так
-    print(c1.square)             # здесь мы получаем аргумент из экземпляра класса, не(!) вызывая функция для расчёта
+    pc1 = Point(1, 2)             # инициализируем (создаём) экземпляр точки с координатами x = 1, y = 2
+    c1 = Circle(pc1, 5)           # инициализируем (создаём) экземпляр круга с точкой из pc1 и радиусом 5
+    print(c1.square_calculate())  # в экземпляре c1 вызываем метод(функци) для расчёта площади
+                                  # т.к. мы делаем это в конструкторе класса, то можно сделать так
+    print(c1.square)              # здесь мы получаем аргумент из экземпляра класса, не(!) вызывая функция для расчёта
 
     pc1_small = Point(1, 1)     # small. точка малого круга x = 1, y = 1
     pc2_middle = Point(2, 2)    # middle. точка среднего круга x = 2, y = 2
@@ -148,8 +149,8 @@ if __name__ == '__main__':
     print(c1.do_intersect(c2))  # проверяем пересекаются ли круги
 
     print(c1 == c2)             # сравниваем два круга на эквивалентность
-    print(c1 < c2)              # первый круг больше второго ? Если да, то true
-    print(c1 > c2)              # первый круг меньше второго ? Если да, то true
+    print(c1 < c2)              # первый круг больше второго ? -> Если да, то true
+    print(c1 > c2)              # первый круг меньше второго ? -> Если да, то true
 
     pc3 = Point(5, 5)           # big. создание точки для большого круга x=5, y=5
     c3 = Circle(pc3, 5)         # создание круга с точкой pc3 и радиусом 5
@@ -165,10 +166,10 @@ if __name__ == '__main__':
     for el in circle_list:  # то же самое, что и раньше, только после сортировки
         print(f"el = {el}, x = {el.point_object.x}, y = {el.point_object.y}")
 
-    # d1 = Dog(name="bars")
-    # d1.make_sound()
-    # d1.move()
-    #
-    # s1 = Snake(name="snake")
-    # s1.make_sound()
-    # s1.move()
+    dog1 = Dog(name="Sharik")      # создаём экземпляр класса Dog с назваинем dog1, указываем имя = "Sharik"
+    dog1.make_sound()              # вызываем метод make_sound для dog1
+    dog1.move()                    # вызываем метод move для dog1
+
+    snake1 = Snake(name="Zmeyaa")  # создаём экземпляр класса Snake с назваинем snake1, указываем имя = "Zmeyaa"
+    snake1.make_sound()            # вызываем метод make_sound для snake1
+    snake1.move()                  # вызываем метод move для snake1
