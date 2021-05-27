@@ -64,6 +64,13 @@ class Circle:
         else:
             return False
 
+    def __repr__(self):
+        name = self.__class__.__name__
+        return f"{name}, {self.point_object.x}, {self.point_object.y}"
+
+    def __str__(self):
+        return f"x = {self.point_object.x}, y = {self.point_object.y}"
+
     def square_calculate(self):  # метод (функция) для расчёта площади круга по формуле 2*П*r^2
         self.square = 3.14 * self.radius * self.radius
         return self.square
@@ -141,35 +148,39 @@ if __name__ == '__main__':
     #                               # т.к. мы делаем это в конструкторе класса, то можно сделать так
     # print(c1.square)              # здесь мы получаем аргумент из экземпляра класса, не(!) вызывая функция для расчёта
     #
-    # pc1_small = Point(1, 1)     # small. точка малого круга x = 1, y = 1
-    # pc2_middle = Point(2, 2)    # middle. точка среднего круга x = 2, y = 2
-    #
-    # c1 = Circle(pc1_small, 1)   # создаём круг по точку малого(small) круга и радиусу 1
-    # c2 = Circle(pc2_middle, 3)  # создаём круг по точку среднего(middle) круга и радиусу 3
+    pc1_small = Point(1, 1)     # small. точка малого круга x = 1, y = 1
+    pc2_middle = Point(2, 2)    # middle. точка среднего круга x = 2, y = 2
+
+    c1 = Circle(pc1_small, 1)   # создаём круг по точку малого(small) круга и радиусу 1
+    c2 = Circle(pc2_middle, 3)  # создаём круг по точку среднего(middle) круга и радиусу 3
     # print(c1.do_intersect(c2))  # проверяем пересекаются ли круги
     #
     # print(c1 == c2)             # сравниваем два круга на эквивалентность
     # print(c1 < c2)              # первый круг больше второго ? -> Если да, то true
     # print(c1 > c2)              # первый круг меньше второго ? -> Если да, то true
     #
-    # pc3 = Point(5, 5)           # big. создание точки для большого круга x=5, y=5
-    # c3 = Circle(pc3, 5)         # создание круга с точкой pc3 и радиусом 5
-    # circle_list = [c3, c1, c2]  # создаём массив из трёх кругов
-    #
-    # print("before sort()")  # вывод названия объекта, его расположение в памяти и координаты точки центра этого круга
-    # for el in circle_list:  # для всех кругов вывести название и расположение, координату Х, координату У
-    #     print(f"el = {el}, x = {el.point_object.x}, y = {el.point_object.y}")
-    #
-    # circle_list.sort()      # сортировка массива из кругов исходя из их площадей (методы __eq__, __lt__, __gt__)
-    #
-    # print("after sort()")
-    # for el in circle_list:  # то же самое, что и раньше, только после сортировки
-    #     print(f"el = {el}, x = {el.point_object.x}, y = {el.point_object.y}")
+    pc3 = Point(5, 5)           # big. создание точки для большого круга x=5, y=5
+    c3 = Circle(pc3, 5)         # создание круга с точкой pc3 и радиусом 5
+    circle_list = [c3, c1, c2]  # создаём массив из трёх кругов
 
-    dog1 = Dog(name="Sharik")      # создаём экземпляр класса Dog с назваинем dog1, указываем имя = "Sharik"
-    dog1.make_sound()              # вызываем метод make_sound для dog1
-    dog1.move()                    # вызываем метод move для dog1
+    print("before sort()")      # вывод названия объекта, его расположение в памяти и координаты точки центра этого круга
+    for el in circle_list:      # для всех кругов вывести название и расположение, координату Х, координату У
+        print(f"el: {el}")      # испльзуем для получения "читаемого" текста
+        print(repr(el))         # используем для отладки, получаем информацию об объекте
 
-    snake1 = Snake(name="Zmeyaa")  # создаём экземпляр класса Snake с назваинем snake1, указываем имя = "Zmeyaa"
-    snake1.make_sound()            # вызываем метод make_sound для snake1
-    snake1.move()                  # вызываем метод move для snake1
+    circle_list.sort()          # сортировка массива из кругов исходя из их площадей (методы __eq__, __lt__, __gt__)
+
+    print("after sort()")
+    for el in circle_list:      # то же самое, что и раньше, только после сортировки
+        print(f"el: {el}")      # испльзуем для получения "читаемого" текста
+        print(repr(el))         # используем для отладки, получаем информацию об объекте
+
+    # dog1 = Dog(name="Sharik")      # создаём экземпляр класса Dog с назваинем dog1, указываем имя = "Sharik"
+    # dog1.make_sound()              # вызываем метод make_sound для dog1
+    # dog1.move()                    # вызываем метод move для dog1
+    #
+    # snake1 = Snake(name="Zmeyaa")  # создаём экземпляр класса Snake с назваинем snake1, указываем имя = "Zmeyaa"
+    # snake1.make_sound()            # вызываем метод make_sound для snake1
+    # snake1.move()                  # вызываем метод move для snake1
+
+    pass
