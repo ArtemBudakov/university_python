@@ -58,6 +58,24 @@ class Circle:
         else:
             return False
 
+    def __le__(self, other):  # <= less or equal
+        if self.square <= other.square:  # Если площать данного экземпляра меньше или равна площади другого экземпляра
+            return True
+        else:
+            return False
+
+    def __ge__(self, other):  # >= greater or equal
+        if self.square >= other.square:  # Если площать данного экземпляра больше или равна площади другого экземпляра
+            return True
+        else:
+            return False
+
+    def __ne__(self, other):  # != not equal
+        if self.square != other.square:  # Если площать данного экземпляра не равна площади другого экземпляра
+            return True
+        else:
+            return False
+
     def __gt__(self, other):             # greater then (больше чем)
         if self.square > other.square:   # если площать данного экземпляра больше площади другого экземпляра
             return True
@@ -66,10 +84,11 @@ class Circle:
 
     def __repr__(self):
         name = self.__class__.__name__
-        return f"{name}, {self.point_object.x}, {self.point_object.y}"
+        return f"{name}, Points({self.point_object.x}, {self.point_object.y}), square {self.square}"
 
     def __str__(self):
-        return f"x = {self.point_object.x}, y = {self.point_object.y}"
+        return f"Point for centre of Circle: x = {self.point_object.x}, y = {self.point_object.y}," \
+               f"square = {self.square}"
 
     def square_calculate(self):  # метод (функция) для расчёта площади круга по формуле 2*П*r^2
         self.square = 3.14 * self.radius * self.radius
@@ -138,42 +157,23 @@ class Snake(Animal):                            # Создаём класс Snak
 
 if __name__ == '__main__':
 
-    # p1 = Point(1.5, 0)  # инициализируем (создаём) экземпляр точки с координатами x = 1.5, y = 0
-    # p2 = Point(1.5, 2)  # инициализируем (создаём) экземпляр точки с координатами x = 1.5, y = 2
-    # print(p1.dist(p2))  # в экземпляре p1 вызываем функцию dist и передаём этой функции экземпляр другой точки
-    #
-    # pc1 = Point(1, 2)             # инициализируем (создаём) экземпляр точки с координатами x = 1, y = 2
-    # c1 = Circle(pc1, 5)           # инициализируем (создаём) экземпляр круга с точкой из pc1 и радиусом 5
-    # print(c1.square_calculate())  # в экземпляре c1 вызываем метод(функци) для расчёта площади
-    #                               # т.к. мы делаем это в конструкторе класса, то можно сделать так
-    # print(c1.square)              # здесь мы получаем аргумент из экземпляра класса, не(!) вызывая функция для расчёта
-    #
-    pc1_small = Point(1, 1)     # small. точка малого круга x = 1, y = 1
-    pc2_middle = Point(2, 2)    # middle. точка среднего круга x = 2, y = 2
+    pc1_small = Point(1, 1)         # small. точка малого круга x = 1, y = 1
+    pc2_middle = Point(2, 2)        # middle. точка среднего круга x = 2, y = 2
+    pc3_big = Point(1, 1)           # big. точка большого круга x = 1, y = 1
+    pc4_biggest = Point(1, 1)       # biggest. точка самого большого круга x = 1, y = 1
 
-    c1 = Circle(pc1_small, 1)   # создаём круг по точку малого(small) круга и радиусу 1
-    c2 = Circle(pc2_middle, 3)  # создаём круг по точку среднего(middle) круга и радиусу 3
-    # print(c1.do_intersect(c2))  # проверяем пересекаются ли круги
-    #
-    # print(c1 == c2)             # сравниваем два круга на эквивалентность
-    # print(c1 < c2)              # первый круг больше второго ? -> Если да, то true
-    # print(c1 > c2)              # первый круг меньше второго ? -> Если да, то true
-    #
-    pc3 = Point(5, 5)           # big. создание точки для большого круга x=5, y=5
-    c3 = Circle(pc3, 5)         # создание круга с точкой pc3 и радиусом 5
-    circle_list = [c3, c1, c2]  # создаём массив из трёх кругов
+    c1 = Circle(pc1_small, 1)       # создаём круг по точку малого(small) круга и радиусу 1
+    c2 = Circle(pc2_middle, 3)      # создаём круг по точку среднего(middle) круга и радиусу 3
+    c3 = Circle(pc3_big, 5)         # создаём круг по точку среднего(big) круга и радиусу 5
+    c4 = Circle(pc4_biggest, 10)    # создаём круг по точку среднего(biggest) круга и радиусу 5
 
-    print("before sort()")      # вывод названия объекта, его расположение в памяти и координаты точки центра этого круга
-    for el in circle_list:      # для всех кругов вывести название и расположение, координату Х, координату У
-        print(f"el: {el}")      # испльзуем для получения "читаемого" текста
-        print(repr(el))         # используем для отладки, получаем информацию об объекте
+    circle_list = [c4, c1, c2, c3]  # создаём массив из трёх кругов
 
-    circle_list.sort()          # сортировка массива из кругов исходя из их площадей (методы __eq__, __lt__, __gt__)
+    print("before sort()")  # вывод названия объекта, его расположение в памяти и координаты точки центра этого круга
+    print(circle_list)
 
-    print("after sort()")
-    for el in circle_list:      # то же самое, что и раньше, только после сортировки
-        print(f"el: {el}")      # испльзуем для получения "читаемого" текста
-        print(repr(el))         # используем для отладки, получаем информацию об объекте
+    circle_list.sort()      # сортировка массива из кругов исходя из их площадей (методы __eq__, __lt__, __gt__, etc)
+    print(circle_list)
 
     # dog1 = Dog(name="Sharik")      # создаём экземпляр класса Dog с назваинем dog1, указываем имя = "Sharik"
     # dog1.make_sound()              # вызываем метод make_sound для dog1
