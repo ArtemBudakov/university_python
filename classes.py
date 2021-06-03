@@ -127,36 +127,35 @@ class Circle:
 
 
 class Animal:
-    def __init__(self, name, sound):  # создаём конструктор класса Animal
-        self.name = name              # инициализируем аргумент name для класса
-        self.sound = sound            # инициализируем аргумент sound для класса
-
-    def make_sound(self):
-        print(f"{self.name} says {self.sound}")  # выводим информацию о том какой звук издаёт кто-то с именем {self.name}
+    def __init__(self, name):  # создаём конструктор класса Animal
+        self.name = name       # инициализируем аргумент name для класса
 
 
 class Dog(Animal):                              # Создаём класс Dog, который является наследником от Animal
     def __init__(self, name, sound='woof'):     # Создаём конструктор класса Dog. Если sound не указан
-        super().__init__(name, sound)           # при создании, то будет woof по умолчанию
-        self.name = name
+        super().__init__(name)                  # при создании, то будет woof по умолчанию
         self.sound = sound
 
     def move(self):
         print(f"{self.name} walks")             # выводим информацию о том как передвигаются собаки
 
+    def make_sound(self):
+        print(f"{self.name} says {self.sound}") # выводим информацию о том какой звук издаёт кто-то с именем {self.name}
+
 
 class Snake(Animal):                            # Создаём класс Snake, который является наследником от Animal
     def __init__(self, name, sound='hsss'):     # Cоздаём конструктор класса Snake. Если sound не указан
-        super().__init__(name, sound)           # при создании, то будет hsss по умолчанию
-        self.name = name
+        super().__init__(name)                  # при создании, то будет hsss по умолчанию
         self.sound = sound
 
     def move(self):
         print(f"{self.name} crawls")            # выводим информацию о том как передвигаются змеи
 
+    def make_sound(self):
+        print(f"{self.name} says {self.sound}") # выводим информацию о том какой звук издаёт кто-то с именем {self.name}
 
-if __name__ == '__main__':
 
+def circles():
     pc1_small = Point(1, 1)         # small. точка малого круга x = 1, y = 1
     pc2_middle = Point(2, 2)        # middle. точка среднего круга x = 2, y = 2
     pc3_big = Point(1, 1)           # big. точка большого круга x = 1, y = 1
@@ -175,12 +174,21 @@ if __name__ == '__main__':
     circle_list.sort()      # сортировка массива из кругов исходя из их площадей (методы __eq__, __lt__, __gt__, etc)
     print(circle_list)
 
-    # dog1 = Dog(name="Sharik")      # создаём экземпляр класса Dog с назваинем dog1, указываем имя = "Sharik"
-    # dog1.make_sound()              # вызываем метод make_sound для dog1
-    # dog1.move()                    # вызываем метод move для dog1
-    #
-    # snake1 = Snake(name="Zmeyaa")  # создаём экземпляр класса Snake с назваинем snake1, указываем имя = "Zmeyaa"
-    # snake1.make_sound()            # вызываем метод make_sound для snake1
-    # snake1.move()                  # вызываем метод move для snake1
+
+def animals():
+    dog1 = Dog(name="Sharik")  # создаём экземпляр класса Dog с назваинем dog1, указываем имя = "Sharik"
+    dog1.make_sound()  # вызываем метод make_sound для dog1
+    dog1.move()  # вызываем метод move для dog1
+
+    snake1 = Snake(name="Zmeyaa")  # создаём экземпляр класса Snake с назваинем snake1, указываем имя = "Zmeyaa"
+    snake1.make_sound()  # вызываем метод make_sound для snake1
+    snake1.move()  # вызываем метод move для snake1
+
+
+if __name__ == '__main__':
+
+    # circles()
+
+    animals()
 
     pass
